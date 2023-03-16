@@ -2,7 +2,9 @@ FROM postgres:15
 
 COPY . /tmp/pgvector
 
-RUN apt-get update && \
+RUN pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple \
+		&& pip config set global.trusted-host mirrors.cloud.tencent.com \
+		apt-get update && \
 		apt-get install -y --no-install-recommends build-essential postgresql-server-dev-15 && \
 		cd /tmp/pgvector && \
 		make clean && \
