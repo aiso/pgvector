@@ -1,7 +1,7 @@
 FROM postgres:15
 
 # 选用国内镜像源以提高下载速度
-RUN sed -i "s/http://deb.debian.org/https://mirrors.aliyun.com/g" /etc/apt/sources.list
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
 
 COPY . /tmp/pgvector
 
